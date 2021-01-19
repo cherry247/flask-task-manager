@@ -13,8 +13,9 @@
   <table>
     <tr>
         <th>Task</th>
-        <th>Added</th>
-        <th>Actions</th>
+        <th>Added on</th>
+        <th>delete</th>
+        <th>update</th>
     </tr>
     
     {%for task in tasks%}
@@ -22,10 +23,13 @@
       <td>{{task.content}}</td>
       <td>{{task.date_created.date()}}</td>
       <td>
-          <a href="/delete/{{task.id}}">Delete</a>
-          <br>
-          <a href="/update/{{task.id}}">Update</a>
+         <button onclick="window.location.href='/delete/{{task.id}}';" style="border-radius: 12px;background-color:#a3a3c2;border:none; padding: 10px 25px;" >delete</button>
       </td>
+         
+      <td>
+          <button onclick="window.location.href='/update/{{task.id}}';"style="border-radius: 12px;background-color:#6699cc;border:none; padding: 10px 25px;">update</button>
+      </td>
+    
   </tr>
   {% endfor %}
   </table>
@@ -33,7 +37,7 @@
   <br>
   <form action="/" method="POST">
     <input type='text' name='content' id=content>
-    <input type='submit' value='add task'>
+    <input type='submit' value='add task' style="border-radius: 12px;background-color:#468b63;border:none; padding: 10px 25px;color:white">
 
   </form>
 </div>
